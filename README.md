@@ -15,7 +15,7 @@ The simplest way to use this library
 ``` html
   <body>
     <img class="magnify" src="image.png" />
-    <script type="module" src="https://oyo.github.io/tiny.image.magnifier/dist/index.js"></script>
+    <script type="module" src="https://oyo.github.io/tiny.image.magnifier/index.js"></script>
   </body>
 ```
 
