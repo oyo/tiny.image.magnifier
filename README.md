@@ -20,3 +20,19 @@ The simplest way to use this library
 ```
 
 See: https://oyo.github.io/tiny.image.magnifier/simple.html
+
+### Customize
+
+Use the import statement to customize some settings
+
+``` html
+  <script type="module">
+    import Magnify from 'https://oyo.github.io/tiny.image.magnifier/index.js'
+    Magnify.setDefault({
+      zoom: 4,
+      distortFactor: -0.004
+    })
+  </script>
+```
+
+See: https://oyo.github.io/tiny.image.magnifier/custom.html
