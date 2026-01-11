@@ -9,7 +9,8 @@ export default class Magnify {
 	}
 
 	static setDefault(lens) {
-		Magnify.lens = Object.assign(Magnify.lens, lens)
+		Magnify.lens = Object.assign(Magnify.lens, lens);
+		[...document.getElementsByClassName('magnify')].forEach(img => img.magnify.update())
 	}
 
 	constructor(image, lens) {
@@ -52,11 +53,12 @@ cursor:none;`
 			img.parentElement.removeChild(img)
 			const ctx = can.getContext('2d', { willReadFrequently: true })
 			ctx.drawImage(img, 0, 0)
-			can.className = `${img.className} magnify`
+			can.className = img.className
 			img = can
 			if (this.lens.can.parentElement)
 				this.lens.can.parentElement.removeChild(this.lens.can)
 		}
+		img.magnify = this;
 		img.parentElement.appendChild(this.lens.can)
 		img.addEventListener('mousemove', this.update.bind(this))
 		return this.lens.can
