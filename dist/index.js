@@ -5,7 +5,7 @@ export default class Magnify {
 		zoom: 6,
 		light: 80,
 		distort: true,
-		distortFactor: 0.0012
+		distortFactor: 0.002
 	}
 
 	static setDefault(lens) {
