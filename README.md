@@ -15,24 +15,36 @@ The simplest way to use this library
 ``` html
   <body>
     <img class="magnify" src="image.png" />
-    <script type="module" src="https://oyo.github.io/tiny.image.magnifier/index.js"></script>
+    <script type="module" src="https://oyo.github.io/tiny.image.magnifier/lib.js"></script>
   </body>
 ```
 
-See: https://oyo.github.io/tiny.image.magnifier/simple.html
+See https://oyo.github.io/tiny.image.magnifier/simple.html
 
 ### Customize
 
-Use the import statement to customize some settings
+Use the import statement to customize default settings or if images are added dynamically.
 
 ``` html
   <script type="module">
-    import Magnify from 'https://oyo.github.io/tiny.image.magnifier/index.js'
-    Magnify.setDefault({
+    import { setLens, magnify } from 'https://oyo.github.io/tiny.image.magnifier/lib.js'
+    setLens({
+      radius: 100,
+      light: 140,
       zoom: 4,
       distortFactor: -0.004
     })
+    const img = new Image()
+    img.setAttribute("crossOrigin", "anonymous")
+    img.src = 'image.jpeg'
+    document.body.appendChild(img)
+    magnify(img)
   </script>
 ```
 
-See: https://oyo.github.io/tiny.image.magnifier/custom.html
+See https://oyo.github.io/tiny.image.magnifier/custom.html
+
+### Caveats
+
+Note that all images will be drawn to a canvas which converts them to a raster format.
+SVG images will not scale smoothly after that process.

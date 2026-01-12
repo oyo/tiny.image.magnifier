@@ -1,11 +1,12 @@
 {
   "name": "tiny.image.magnifier",
   "version": "0.0.1",
-  "description": "A zero dependency image magnifier component for web applications.",
+  "description": "A simple and tiny image magnifier component for web applications with zero dependencies.",
   "author": "Martin Rohrmeier <roryphant@gmail.com> (oyo)",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/lib.js",
+  "types": "./dist/lib.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oyo/tiny.image.magnifier.git"

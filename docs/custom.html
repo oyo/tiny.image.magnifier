@@ -5,10 +5,17 @@
     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
   />
   <script type="module">
-    import Magnify from 'https://oyo.github.io/tiny.image.magnifier/index.js'
-    Magnify.setDefault({
+    import { setLens, magnify } from './lib.js'
+    setLens({
+      radius: 100,
+      light: 140,
       zoom: 4,
       distortFactor: -0.004
     })
+    const img = new Image()
+    img.setAttribute("crossOrigin", "anonymous")
+    img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png'
+    document.body.appendChild(img)
+    magnify(img)
   </script>
 </body>
