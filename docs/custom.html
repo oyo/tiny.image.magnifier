@@ -1,20 +1,15 @@
-<body style="padding:200px;">
-  <img
-    class="magnify"
-    crossOrigin="anonymous"
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-  />
+<body style="background-color:#202020; padding:200px;">
   <script type="module">
-    import { setLens, magnify } from 'https://oyo.github.io/tiny.image.magnifier/lib.js'
+    import { setLens, magnify } from './lib.js'
     setLens({
-      radius: 100,
-      light: 140,
-      zoom: 4,
-      distortFactor: -0.004
+      radius: 250,
+      light: 20,
+      zoom: 3,
+      distortFactor: -0.002
     })
     const img = new Image()
-    img.setAttribute("crossOrigin", "anonymous")
-    img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png'
+    img.setAttribute('crossOrigin', 'anonymous')
+    img.src = 'frog.jpg'
     document.body.appendChild(img)
     magnify(img)
   </script>

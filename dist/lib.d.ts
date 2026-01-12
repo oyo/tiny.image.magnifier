@@ -9,4 +9,4 @@ declare interface LensOptions {
 declare function setLens(options: Partial<LensOptions>): void;
 declare function magnify(image: HTMLImageElement | HTMLCanvasElement | SVGElement | NodeList | HTMLCollection): void;
 
-export { setLens, magnify, LensOptions };
+export { setLens, magnify, type LensOptions };

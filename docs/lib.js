@@ -9,8 +9,9 @@ const magnifyLens = {
 let lastEvent = null
 
 const setLens = lens => {
-	Object.assign(magnifyLens, lens)
-	setRadius(magnifyLens.radius)
+	const l = getLens()
+	Object.assign(l, lens)
+	setRadius(l.radius)
 }
 
 const setLight = light => {
@@ -34,11 +35,13 @@ const setRadius = radius => {
 	l.r = l.radius = radius
 	l.r2 = radius << 1
 	l.rq = radius * radius
-	l.can.width = l.r2
-	l.can.height = l.r2
-	l.img = l.ctx.createImageData(l.r2, l.r2)
-	l.glimg = new Array(l.r2 * l.r2)
-	setLight(l.light)
+	if (l.can) {
+		l.can.width = l.r2
+		l.can.height = l.r2
+		l.img = l.ctx.createImageData(l.r2, l.r2)
+		l.glimg = new Array(l.r2 * l.r2)
+		setLight(l.light)
+	}
 }
 
 const getContentBoundingRect = ele => {
@@ -87,13 +90,17 @@ const init = img => {
 		can.width = img.width
 		can.height = img.height
 		const ctx = can.getContext('2d', { willReadFrequently: true })
-		img.parentElement.insertBefore(can, img)
+		if (img.parentElement) {
+			img.parentElement.insertBefore(can, img)
+			img.parentElement.removeChild(img)
+		}
 		ctx.drawImage(img, 0, 0)
-		img.parentElement.removeChild(img)
 		can.className = img.className
+		can.setAttribute('style', img.getAttribute('style'))
 		img = can
 	}
 	img.addEventListener('mousemove', update)
+	return img
 }
 
 const scroll = e => {
@@ -190,8 +197,10 @@ const magnify = image =>
 				const svg = new Image()
 				svg.src = `data:image/svg+xml;base64,${btoa(img.outerHTML)}`
 				svg.classList.add(...img.classList)
-				img.parentElement.insertBefore(svg, img)
-				img.parentElement.removeChild(img)
+				if (img.parentElement) {
+					img.parentElement.insertBefore(svg, img)
+					img.parentElement.removeChild(img)
+				}
 				img = svg
 			}
 			(m =>
