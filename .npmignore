@@ -1,4 +1,6 @@
+.github/
 img/
 src/
 node_modules/
+yarn.lock
 .DS_Store
