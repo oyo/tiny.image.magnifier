@@ -212,6 +212,6 @@ const magnify = image =>
 			)
 		})
 
-magnify(document.getElementsByClassName('magnify'))
+window.addEventListener('load', () => magnify(document.getElementsByClassName('magnify')))
 
 export { setLens, magnify }

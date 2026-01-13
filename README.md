@@ -44,7 +44,27 @@ Use the import statement to customize default settings or if images are added dy
 
 See https://oyo.github.io/tiny.image.magnifier/custom.html
 
+### Usage
+
+Works with
+* image
+* canvas
+* svg (not recommended, see below)
+
+Features
+* one image only
+* minimal configuration
+* adjustable zoom level
+* adjustable lens size
+* adjustable lens distortion effect
+* adjustable lens light effect
+
 ### Caveats
 
 Note that all images will be drawn to a canvas which converts them to a raster format.
-SVG images will not scale smoothly after that process.
+SVG images will not scale smoothly after that process and are therefore not recommended.
+For cross domain loaded images you need to set the `crossOrigin="anonymous"` attribute.
+
+```html
+<img class="magnify" crossOrigin="anonymous" src="https://another.domain/image" />
+```

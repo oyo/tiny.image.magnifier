@@ -1,7 +1,7 @@
 {
   "name": "tiny.image.magnifier",
-  "version": "0.0.1",
-  "description": "A simple and tiny image magnifier component for web applications with zero dependencies.",
+  "version": "0.0.2",
+  "description": "A simple and zero dependency image magnifier component for web applications.",
   "author": "Martin Rohrmeier <roryphant@gmail.com> (oyo)",
   "license": "MIT",
   "type": "module",
@@ -10,5 +10,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oyo/tiny.image.magnifier.git"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp src/lib* dist",
+    "clear": "rm -rf dist"
   }
 }
